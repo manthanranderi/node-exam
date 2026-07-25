@@ -1,0 +1,47 @@
+<div class="card h-100 shadow-sm border-0">
+
+    <div class="card-body">
+
+        <h4 class="fw-bold mb-3">
+            <%= product.productName %>
+        </h4>
+
+        <p>
+            <strong>Category :</strong>
+            <%= product.categoryName %>
+        </p>
+
+        <p>
+            <strong>Price :</strong>
+            ₹ <%= product.price %>
+        </p>
+
+        <p>
+            <strong>Description :</strong><br>
+            <%= product.description %>
+        </p>
+
+        <p>
+            <strong>Added By :</strong>
+            <%= product.username %>
+        </p>
+
+    </div>
+
+    <div class="card-footer bg-white border-0">
+
+        <a href="/products/edit/<%= product._id %>" class="btn btn-warning btn-sm">
+            Edit
+        </a>
+
+        <a href="/products/delete/<%= product._id %>"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('Delete this product?')">
+
+            Delete
+
+        </a>
+
+    </div>
+
+</div>

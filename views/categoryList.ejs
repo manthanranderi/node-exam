@@ -1,0 +1,122 @@
+<%- include("partials/navbar") %>
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <!-- Add Category -->
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-primary text-white">
+                    <h4>Add Category</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="/categories/add" method="POST">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">Category Name</label>
+
+                            <input
+                                type="text"
+                                name="categoryName"
+                                class="form-control"
+                                placeholder="Enter Category Name"
+                                required>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Add Category
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Category List -->
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-dark text-white">
+                    <h4>Category List</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead class="table-secondary">
+
+                            <tr>
+                                <th>#</th>
+                                <th>Category Name</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <% if(categories.length > 0){ %>
+
+                                <% categories.forEach((category,index)=>{ %>
+
+                                    <tr>
+
+                                        <td><%= index+1 %></td>
+
+                                        <td><%= category.categoryName %></td>
+
+                                        <td>
+
+                                            <a href="/categories/edit/<%= category._id %>" class="btn btn-warning btn-sm">
+                                                Edit
+                                            </a>
+
+                                            <a href="/categories/delete/<%= category._id %>" class="btn btn-danger btn-sm">
+                                                Delete
+                                            </a>
+
+                                        </td>
+
+                                    </tr>
+
+                                <% }) %>
+
+                            <% } else { %>
+
+                                <tr>
+
+                                    <td colspan="3" class="text-center">
+                                        No Categories Found
+                                    </td>
+
+                                </tr>
+
+                            <% } %>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

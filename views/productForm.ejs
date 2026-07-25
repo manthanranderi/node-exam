@@ -1,0 +1,51 @@
+<%- include("partials/navbar") %>
+
+<h2>
+
+<%= product ? "Edit Product" : "Add Product" %>
+
+</h2>
+
+<form action="<%= product ? '/products/edit/'+product._id : '/products/add' %>" method="POST">
+
+<input
+type="text"
+name="productName"
+placeholder="Product Name"
+value="<%= product ? product.productName : '' %>"
+required>
+
+<br><br>
+
+<input
+type="number"
+name="price"
+placeholder="Price"
+value="<%= product ? product.price : '' %>"
+required>
+
+<br><br>
+
+<textarea
+name="description"><%= product ? product.description : '' %></textarea>
+
+<br><br>
+
+
+
+<br><br>
+
+<button>
+
+<%= product ? "Update" : "Add" %>
+
+</button>
+
+</form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
